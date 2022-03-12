@@ -119,9 +119,9 @@ public class Main{
 
 //-----------------------------------------------------------------------------------------
 
-// BINARY TO DECIMAL USING FUNCTION
+// DECIMAL TO ANY BASE USING FUNCTION
 
-package com.company;
+/*package com.company;
 
 import java.util.*;
 
@@ -152,9 +152,80 @@ public class Main{
         System.out.println(dn);
     }
 
+}*/
+
+//-------------------------------------------------------------------------------------
+
+// BINARY TO DECIMAL
+
+/*package com.company;
+
+import java.util.*;
+
+public class Main{
+
+    public static int binaryToDecimal(int n){
+
+        int power=1;
+        int ans=0;
+
+        while(n!=0){
+
+            int remainder=n%10;
+            ans+=(power*remainder);
+            power=power*2;
+            n=n/10;
+        }
+        return ans;
+    }
+
+    public static void main(String args[]){
+
+        Scanner scn=new Scanner(System.in);
+        int n=scn.nextInt();
+
+        int btd=binaryToDecimal(n);
+        System.out.println(btd);
+    }
+
+}*/
+
+//-------------------------------------------------------------------------------------
+
+// ANY BASE TO DECIMAL
+
+package com.company;
+
+import java.util.*;
+
+public class Main{
+
+    public static int anyBaseToDecimal(int n,int b){
+
+        int ans=0;
+        int power=1;
+
+        while(n!=0){
+
+            int remainder=n%10;
+            ans+=power*remainder;
+            power=power*b;
+            n=n/10;
+        }
+        return ans;
+    }
+
+    public static void main(String args[]){
+
+        Scanner scn=new Scanner(System.in);
+        int n=scn.nextInt();
+        int b=scn.nextInt();
+
+        int abtd=anyBaseToDecimal(n,b);
+        System.out.println(abtd);
+    }
+
 }
-
-
 
 
 
