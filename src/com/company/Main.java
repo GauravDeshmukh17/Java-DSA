@@ -90,8 +90,69 @@ public class Main{
 
 // DECIMAL TO BINARY CONVERSION
 
+/*package com.company;
 
+import java.util.Scanner;
 
+public class Main{
+
+    public static void main(String args[]){
+
+        Scanner scn=new Scanner(System.in);
+        int n=scn.nextInt();
+
+        int power=1;
+        int binary=0;
+
+        while(n!=0){
+
+            int remainder=n%2;
+            binary=binary+(remainder*power);
+            n=n/2;
+            power=power*10;
+        }
+
+        System.out.println(binary);
+    }
+
+}*/
+
+//-----------------------------------------------------------------------------------------
+
+// BINARY TO DECIMAL USING FUNCTION
+
+package com.company;
+
+import java.util.*;
+
+public class Main{
+
+    public static int fun(int n,int b){
+
+        int ans=0;
+        int power=1;
+
+        while(n!=0){
+
+            int remainder=n%b;
+            ans+=(power*remainder);
+            power*=10;
+            n/=b;
+        }
+        return ans;
+    }
+
+    public static void main(String args[]){
+
+        Scanner scn=new Scanner(System.in);
+        int n=scn.nextInt(); // n=number
+        int b=scn.nextInt(); // b=base
+
+        int dn=fun(n,b);
+        System.out.println(dn);
+    }
+
+}
 
 
 
