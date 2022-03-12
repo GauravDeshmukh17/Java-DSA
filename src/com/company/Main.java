@@ -194,7 +194,7 @@ public class Main{
 
 // ANY BASE TO DECIMAL
 
-package com.company;
+/*package com.company;
 
 import java.util.*;
 
@@ -225,7 +225,49 @@ public class Main{
         System.out.println(abtd);
     }
 
+}*/
+
+//---------------------------------------------------------------------------------------
+
+// ANY BASE TO ANY BASE CONVERSION
+
+package com.company;
+
+import java.util.Scanner;
+
+public class Main{
+
+    // gb=given base  ,  cb=conversion base
+    public static int anyBaseToAnyBase(int n,int gb,int cb){
+
+        int ans=0;
+        int power=1;
+
+
+        while(n!=0){
+
+            int remainder=n%cb;
+            ans+=(power*remainder);
+            power*=gb;
+            n=n/cb;
+        }
+        return ans;
+    }
+
+    public static void main(String args[]){
+
+        Scanner scn=new Scanner(System.in);
+        int n=scn.nextInt();
+        int gb=scn.nextInt();
+        int cb=scn.nextInt();
+
+        int toDecimal=anyBaseToAnyBase(n,gb,10);
+        int toAnyBase=anyBaseToAnyBase(toDecimal,10,cb);
+        System.out.println(toAnyBase);
+    }
+
 }
+
 
 
 
