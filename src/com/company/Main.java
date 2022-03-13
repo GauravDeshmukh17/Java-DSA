@@ -272,7 +272,7 @@ public class Main{
 
 // ANY BASE ADDITION
 
-package com.company;
+/*package com.company;
 
 import java.util.Scanner;
 
@@ -312,19 +312,63 @@ public class Main{
 
     }
 
+}*/
+
+//--------------------------------------------------------------------------------------
+
+package com.company;
+
+import java.util.Scanner;
+
+public class Main{
+
+    // n2>n1
+    public static int anyBaseSubtraction(int n1,int n2,int b){
+
+        int power=1;
+        int ans=0;
+        int carry=0;
+
+        while(n1!=0 || n2!=0 || carry!=0){
+
+            int r2=n2%10;
+            int r1=n1%10;
+
+            int sub=r2-r1-carry;
+            carry=0;
+
+            if(sub<0){
+
+                int temp=sub+b;
+                ans+=temp*power;
+                carry++;
+            }
+            else{
+
+                ans+=sub*power;
+            }
+
+            power*=10;
+            n2/=10;
+            n1/=10;
+
+        }
+        return ans;
+    }
+
+    public static void main(String args[]){
+
+        Scanner scn=new Scanner(System.in);
+        int n1=scn.nextInt();
+        int n2=scn.nextInt();
+        int b=scn.nextInt();
+
+        // given i.e  n2>n1
+        int abs=anyBaseSubtraction(n1,n2,b);
+        System.out.println(abs);
+    }
+
 }
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
