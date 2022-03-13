@@ -231,7 +231,7 @@ public class Main{
 
 // ANY BASE TO ANY BASE CONVERSION
 
-package com.company;
+/*package com.company;
 
 import java.util.Scanner;
 
@@ -264,6 +264,52 @@ public class Main{
         int toDecimal=anyBaseToAnyBase(n,gb,10);
         int toAnyBase=anyBaseToAnyBase(toDecimal,10,cb);
         System.out.println(toAnyBase);
+    }
+
+}*/
+
+//----------------------------------------------------------------------------------------
+
+// ANY BASE ADDITION
+
+package com.company;
+
+import java.util.Scanner;
+
+public class Main{
+
+    public static int anyBaseAddition(int n1,int n2,int b){
+
+        int power=1;
+        int carry=0;
+        int ans=0;
+
+        while(n1!=0 || n2!=0 || carry!=0){
+
+            int r1=n1%10;
+            int r2=n2%10;
+
+            int sum=r1+r2+carry;
+            int temp=sum%b;
+            ans+=temp*power;
+            power*=10;
+            carry=sum/b;
+            n1=n1/10;
+            n2=n2/10;
+        }
+        return ans;
+    }
+
+    public static void main(String args[]){
+
+        Scanner scn=new Scanner(System.in);
+        int n1=scn.nextInt();
+        int n2=scn.nextInt();
+        int b=scn.nextInt();
+
+        int val= anyBaseAddition(n1,n2,b);
+        System.out.println(val);
+
     }
 
 }
