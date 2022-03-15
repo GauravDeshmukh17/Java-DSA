@@ -374,7 +374,7 @@ public class Main{
 
 // ANY BASE MUTIPLICATION
 
-package com.company;
+/*package com.company;
 
 import java.util.*;
 
@@ -409,4 +409,85 @@ public class Main{
         int abm=anyBaseMultiplication(n1,n2,b);
         System.out.println(abm);
     }
+}*/
+
+//---------------------------------------------------------------------------
+
+package com.company;
+
+import java.util.*;
+
+public class Main{
+
+    public static int anyBaseMultiplication(int n1,int d,int b){
+
+        int power=1;
+        int carry=0;
+        int ans=0;
+
+        while(n1!=0 || carry!=0){
+
+            int r1=n1%10;
+            int product=(r1*d)+carry;
+            int temp=product%b;
+            carry=product/b;
+            ans=ans+(temp*power);
+            power*=10;
+            n1=n1/10;
+        }
+        return ans;
+    }
+
+    public static int anyBaseAddition(int n1,int n2,int b){
+
+        int power=1;
+        int carry=0;
+        int ans=0;
+
+         while(n1!=0 || n2!=0 || carry!=0){
+
+             int r1=n1%10;
+             int r2=n2%10;
+
+             int sum=r1+r2+carry;
+             int temp=sum%b;
+             ans+=temp*power;
+             power*=10;
+             carry=sum/b;
+             n1/=10;
+             n2/=10;
+
+         }
+         return ans;
+    }
+
+    public static int getFinalAnswer(int n1,int n2,int b){
+
+        int ans=0;
+        int power=1;
+        while(n2!=0){
+
+            int d=n2%10;
+            int result=anyBaseMultiplication(n1,d,b);
+            ans=anyBaseAddition(ans,result*power,b);
+            power*=10;
+            n2/=10;
+        }
+        return ans;
+    }
+
+    public static void main(String args[]){
+
+        Scanner scn=new Scanner(System.in);
+        int n1=scn.nextInt();
+        int n2=scn.nextInt();
+        int b=scn.nextInt();
+
+        int abm=getFinalAnswer(n1,n2,b);
+        System.out.println(abm);
+    }
+
 }
+
+
+
