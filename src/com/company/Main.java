@@ -316,7 +316,7 @@ public class Main{
 
 //--------------------------------------------------------------------------------------
 
-package com.company;
+/*package com.company;
 
 import java.util.Scanner;
 
@@ -368,7 +368,45 @@ public class Main{
         System.out.println(abs);
     }
 
+}*/
+
+//-------------------------------------------------------------------------------------
+
+// ANY BASE MUTIPLICATION
+
+package com.company;
+
+import java.util.*;
+
+public class Main{
+
+    public static int anyBaseMultiplication(int n1,int n2,int b){
+
+        int power=1;
+        int carry=0;
+        int ans=0;
+
+        while(n1!=0 || carry!=0){
+
+            int r1=n1%10;
+            int product=(r1*n2)+carry;
+            int temp=product%b;
+            carry=product/b;
+            ans=ans+(temp*power);
+            power*=10;
+            n1=n1/10;
+        }
+        return ans;
+    }
+
+    public static void main(String args[]) {
+
+        Scanner scn = new Scanner(System.in);
+        int n1=scn.nextInt();
+        int n2=scn.nextInt();
+        int b=scn.nextInt();
+
+        int abm=anyBaseMultiplication(n1,n2,b);
+        System.out.println(abm);
+    }
 }
-
-
-
