@@ -37,7 +37,7 @@ public class FunctionRevision {
 
 // DIGIT FREQUENCY
 
-package com. company ;
+/*package com. company ;
 
 import java.util.Scanner;
 
@@ -66,6 +66,43 @@ public class FunctionRevision{
 
         int ans=digitCount(n,d);
         System.out.println(ans);
+    }
+
+}*/
+
+//-------------------------------------------------------------------------------------------------
+
+// DECIMAL TO BIANARY
+
+package com.company;
+
+import java.util.*;
+
+public class FunctionRevision{
+
+    public static int binaryToDecimal(int n){
+
+        int sum=0;
+        int power=1;
+
+        while(n!=0){
+
+            int remainder=n%2;
+            sum=sum+(remainder*power);
+            power=power*10;
+            n=n/2;
+        }
+        return sum;
+    }
+
+    public static void main(String args[]){
+
+        Scanner scn=new Scanner(System.in);
+        int n=scn.nextInt();
+
+        int dtb=binaryToDecimal(n);
+        System.out.println(dtb);
+
     }
 
 }
