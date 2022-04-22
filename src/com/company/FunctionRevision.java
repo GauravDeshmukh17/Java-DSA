@@ -111,7 +111,7 @@ public class FunctionRevision{
 
 // DECIMAL TO ANY BASE
 
-package com.company;
+/*package com.company;
 
 import java.util.Scanner;
 
@@ -142,6 +142,43 @@ public class FunctionRevision{
         System.out.println(dtab);
     }
 
+}*/
+
+//-------------------------------------------------------------------------------------------------
+
+// BINARY TO DECIMAL
+
+package com.company;
+
+import java.util.Scanner;
+
+public class FunctionRevision{
+
+    public static int binaryToDecimal(int n){
+
+        int ans=0;
+        int power=1;
+
+        while(n!=0){
+
+            int remainder=n%10;
+            ans=ans+(remainder*power);
+            power=power*2;
+            n=n/10;
+        }
+        return ans;
+    }
+
+    public static void main(String args[]){
+
+        Scanner scn=new Scanner(System.in);
+        int n=scn.nextInt();
+
+        int btd=binaryToDecimal(n);
+        System.out.println(btd);
+    }
+
 }
+
 
 
