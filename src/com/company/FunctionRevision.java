@@ -72,9 +72,9 @@ public class FunctionRevision{
 
 //-------------------------------------------------------------------------------------------------
 
-// DECIMAL TO BIANARY
+// DECIMAL TO BINARY
 
-package com.company;
+/*package com.company;
 
 import java.util.*;
 
@@ -103,6 +103,43 @@ public class FunctionRevision{
         int dtb=binaryToDecimal(n);
         System.out.println(dtb);
 
+    }
+
+}*/
+
+//-------------------------------------------------------------------------------------------------
+
+// DECIMAL TO ANY BASE
+
+package com.company;
+
+import java.util.Scanner;
+
+public class FunctionRevision{
+
+    public static int decimalToAnyBase(int n,int b){
+
+        int ans=0;
+        int power=1;
+
+        while(n!=0){
+
+            int remainder=n%b;
+            ans=ans+(remainder*power);
+            power=power*10;
+            n=n/b;
+        }
+        return ans;
+    }
+
+    public static void main(String args[]){
+
+        Scanner scn=new Scanner(System.in);
+        int n=scn.nextInt();  // n=number
+        int b=scn.nextInt();  // b=base
+
+        int dtab=decimalToAnyBase(n,b);
+        System.out.println(dtab);
     }
 
 }
